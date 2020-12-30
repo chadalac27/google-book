@@ -21,8 +21,8 @@ const Navigation = props=>{
     const classes = useStyles();
     return(
         <div className={classes.root}>
-            <AppBar position="static">
-            <Toolbar>
+            <AppBar style={{ backgroundColor: "green"}} position="static">
+            <Toolbar style={{ color: "white"}}>
                 <Typography className={classes.title}>Google Books</Typography>
                 <Typography>
                     <Button className={classes.menuButton} href="/search">Search</Button>

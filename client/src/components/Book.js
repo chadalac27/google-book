@@ -38,7 +38,7 @@ const Book = (props) => {
             <Grid item lg={2} sm={4} md={3} xs={12}>
               <ButtonBase>
                 <img
-                  style={{ maxWidth: "200px" }}
+                  style={{ paddingLeft: "15px" , maxWidth: "200px" }}
                   alt={props.alt}
                   src={props.src}
                 />
