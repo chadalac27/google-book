@@ -1,7 +1,6 @@
 import {Paper,Button,Grid,Typography,TextField} from "@material-ui/core";
 import React, { useState } from "react";
 import axios from 'axios';
-import Search from "../pages/Search";
 
 const SearchField = (props) => {
 
@@ -9,13 +8,11 @@ const SearchField = (props) => {
 
 
     function onSearch(){
-        console.log("Search Field", searchField);
         search();
     }
 
     function onChange(e)
     {
-        console.log(searchField);
         setSearchField(e.target.value);
         search();
     }
@@ -24,16 +21,13 @@ const SearchField = (props) => {
     {
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchField}`)
         .then((res) =>{
-            console.log(res.data.items);
             let formattedBooks= []
             res.data.items.map((book) => {
                 formattedBooks.push({title:book.volumeInfo.title, author: book.volumeInfo.authors[0],description:book.volumeInfo.description,image: book.volumeInfo.imageLinks.thumbnail, alt:"", key:book.id });
                 return ""
             })
-            console.log(formattedBooks);
             props.setBooks(formattedBooks)
            
-            //props.setBooks(res.data.items.volumeInfo)
         })
         .catch((err) => {
             console.log(err);

@@ -10,7 +10,6 @@ const Home = (props) => {
 
     useEffect(() => {
         API.getBooks().then((res) =>{
-            console.log(res.data);
             setSavedBooks(res.data);
         });
     },[]);
